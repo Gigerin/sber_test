@@ -1,0 +1,11 @@
+[run]
+branch = True
+source =
+    app
+    forms
+    util
+
+[report]
+omit =
+    */tests/*
+    */migrations/*
