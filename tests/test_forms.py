@@ -2,8 +2,9 @@
 import pytest
 from app.app import app
 
+
 # pylint: disable=no-member
-@pytest.fixture(name='app_client')
+@pytest.fixture(name="app_client")
 def fixture_app_client():
     "Фикстура клиента"
     with app.test_client() as test_client:
