@@ -1,8 +1,7 @@
 "Тестирование вспомогательных функций вычисления депозита"
 from datetime import datetime
 import pytest
-from app import calculate_amount
-from util import get_datetime_after_n_months, calculate_next_month_rate
+from util import get_datetime_after_n_months, calculate_next_month_rate, calculate_amount
 
 
 # Tests for get_datetime_after_n_months

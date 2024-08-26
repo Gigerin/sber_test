@@ -1,8 +1,8 @@
 "Тестирование форм и валидации данных"
 import pytest
-from app import app
+from app.app import app
 
-
+# pylint: disable=no-member
 @pytest.fixture(name='app_client')
 def fixture_app_client():
     "Фикстура клиента"
