@@ -1,11 +1,14 @@
 [run]
 branch = True
 source =
+    .
     app
     forms
     util
 
 [report]
+include_namespace_packages = true
 omit =
+    __init__.py
     */tests/*
     */migrations/*

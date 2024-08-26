@@ -1,3 +1,4 @@
+"Конфигурационный файл"
 import sys
 import os
 
