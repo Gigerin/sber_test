@@ -1,3 +1,6 @@
+install:
+	poetry install
+
 pylint:
 	poetry run pylint .
 

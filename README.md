@@ -5,6 +5,7 @@
 ## Требования
 
 - Docker
+- poetry
 
 ## Установка и запуск
 
@@ -12,9 +13,15 @@
 
    ```bash
    git clone git@github.com:Gigerin/sber_test.git
-2. **Постройте Докер образ**
+   cd sber_test
+2. **Установите нужные пакеты**
     ```bash
-    docker build -t sber_image .
+    make install
 3. **Запустите контейнер**
     ```bash
-   docker run --name sber_test -p 5000:5000 sber_image
+   make build
+   make up
+Также можно проверить код перед запуском при помощи команд:
+   ```bash
+   make pylint
+   make pytest
