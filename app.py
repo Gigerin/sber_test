@@ -1,7 +1,8 @@
 "Main flask app"
 from flask import Flask, request, jsonify
-from forms import DataForm
+from waitress import serve
 
+from forms import DataForm
 from util import calculate_amount
 
 app = Flask(__name__)
@@ -26,6 +27,4 @@ def calculate_deposit():
 
 
 if __name__ == "__main__":
-    from waitress import serve
-
     serve(app, host="0.0.0.0", port=5000)

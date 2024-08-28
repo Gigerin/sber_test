@@ -1,6 +1,6 @@
 "Тестирование форм и валидации данных"
 import pytest
-from app.app import app
+from app import app
 
 
 # pylint: disable=no-member
