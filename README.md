@@ -11,8 +11,7 @@
 1. **Клонируйте репозиторий:**
 
    ```bash
-   git clone <URL вашего репозитория>
-   cd <имя вашего репозитория>
+   git clone git@github.com:Gigerin/sber_test.git
 2. **Постройте Докер образ**
     ```bash
     docker build -t sber_image .

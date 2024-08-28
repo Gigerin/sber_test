@@ -1,29 +1,24 @@
-"Main flask app"
+"""Main flask app"""
+
 from flask import Flask, request, jsonify
 from waitress import serve
 
-from forms import DataForm
-from util import calculate_amount
+from deposit_service import DepositCalculator
 
 app = Flask(__name__)
 
 
 @app.route("/api/calculate_deposit", methods=["POST"])
 def calculate_deposit():
-    """
-    Проверить входные данные и затем вычислить депозит.
-    :return: dict[str, float] or 400
+    """Handle для функции calculate_deposit
+
+    Returns:
+        dict[str, float]: Словарь с датой депозита и суммой депозита для каждого месяца
+        Tuple: ответ с кодом 400 и описанием ошибки
     """
     data = request.get_json()
-
-    form = DataForm(data=data)
-
-    if form.validate():
-        data = calculate_amount(
-            form.date.data, form.amount.data, form.periods.data, form.rate.data
-        )
-        return jsonify(data), 200
-    return jsonify(errors=form.errors), 400
+    response_data, status_code = DepositCalculator.process_deposit_request(data)
+    return jsonify(response_data), status_code
 
 
 if __name__ == "__main__":
