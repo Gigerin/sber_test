@@ -1,20 +1,22 @@
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /app
+WORKDIR /sber_test
 
-COPY requirements.txt /app/
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update && apt-get install -y curl build-essential
 
-COPY . /app/
+RUN curl -sSL https://install.python-poetry.org | python3 -
 
-RUN pylint .
+ENV PATH="/root/.local/bin:$PATH"
 
-RUN pytest --cov
+COPY . /sber_test
+
+RUN poetry install --no-root --no-dev
+
 
 EXPOSE 5000
 
-CMD ["python", "app.py"]
+CMD ["poetry", "run", "python", "app.py"]

@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "sber_test"
+version = "0.1.0"
+description = ""
+authors = ["Gigerin <codenamedelta228@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^3.0.3"
+WTForms = "^3.1.2"
+black = "^24.8.0"
+pylint = "^3.2.6"
+pytest = "^8.3.2"
+waitress = "^3.0.0"
+python-dateutil = "^2.9.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
